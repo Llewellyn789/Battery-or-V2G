@@ -16,6 +16,18 @@ npm run dev
 
 Open `http://localhost:3000`.
 
+## Deploy on Cloudflare Pages
+
+Use these build settings:
+
+```txt
+Framework preset: Next.js
+Build command: npm run build
+Build output directory: out
+Root directory: leave blank
+Production branch: main
+```
+
 ## Model notes
 
 - Path A includes solar and home battery upfront cost, annual solar and battery benefits, and a future battery replacement cost.
