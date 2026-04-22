@@ -30,16 +30,16 @@ export function PayoffChart({
     <div className="h-[380px] w-full">
       <ResponsiveContainer width="100%" height="100%">
         <LineChart data={data} margin={{ top: 16, right: 16, left: 12, bottom: 10 }}>
-          <CartesianGrid stroke="#e2e8f0" vertical={false} />
+          <CartesianGrid stroke="rgba(255,255,255,0.08)" vertical={false} />
           <XAxis
             dataKey="year"
-            tick={{ fill: "#475569", fontSize: 12 }}
+            tick={{ fill: "#86868b", fontSize: 12 }}
             tickLine={false}
-            axisLine={{ stroke: "#cbd5e1" }}
-            label={{ value: "Years", position: "insideBottom", offset: -4, fill: "#475569" }}
+            axisLine={{ stroke: "rgba(255,255,255,0.12)" }}
+            label={{ value: "Years", position: "insideBottom", offset: -4, fill: "#86868b" }}
           />
           <YAxis
-            tick={{ fill: "#475569", fontSize: 12 }}
+            tick={{ fill: "#86868b", fontSize: 12 }}
             tickFormatter={(value) => audFormatter.format(Number(value)).replace("A$", "$")}
             tickLine={false}
             axisLine={false}
@@ -51,20 +51,28 @@ export function PayoffChart({
               name,
             ]}
             labelFormatter={(year) => `Year ${year}`}
-            contentStyle={{ borderRadius: 8, borderColor: "#cbd5e1", color: "#0f172a" }}
+            contentStyle={{
+              background: "rgba(29,29,31,0.94)",
+              border: "1px solid rgba(255,255,255,0.12)",
+              borderRadius: 8,
+              boxShadow: "0 18px 60px rgba(0,0,0,0.42)",
+              color: "#f5f5f7",
+            }}
+            labelStyle={{ color: "#f5f5f7" }}
+            itemStyle={{ color: "#f5f5f7" }}
           />
-          <Legend verticalAlign="top" height={36} />
+          <Legend verticalAlign="top" height={36} wrapperStyle={{ color: "#a1a1a6", fontSize: 13 }} />
           <ReferenceLine
             x={v2gStartYear}
-            stroke="#64748b"
+            stroke="rgba(255,255,255,0.28)"
             strokeDasharray="4 4"
-            label={{ value: "V2G starts", position: "insideTopRight", fill: "#475569", fontSize: 12 }}
+            label={{ value: "V2G starts", position: "insideTopRight", fill: "#a1a1a6", fontSize: 12 }}
           />
           <Line
             type="monotone"
             dataKey="batteryNowDiscounted"
             name="Battery now"
-            stroke="#0f766e"
+            stroke="#30d158"
             strokeWidth={3}
             dot={false}
             activeDot={{ r: 5 }}
@@ -73,7 +81,7 @@ export function PayoffChart({
             type="monotone"
             dataKey="waitForV2gDiscounted"
             name="Wait for V2G"
-            stroke="#ea580c"
+            stroke="#0a84ff"
             strokeWidth={3}
             dot={false}
             activeDot={{ r: 5 }}

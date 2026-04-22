@@ -45,10 +45,10 @@ export function InputPanel({
   onChange: (key: keyof DerPathwayInputs, value: number) => void;
 }) {
   return (
-    <aside className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+    <aside className="rounded-lg border border-white/10 bg-[#111113]/90 p-5 shadow-[0_24px_80px_rgba(0,0,0,0.45)] backdrop-blur-xl">
       <div>
-        <p className="text-xs font-semibold uppercase tracking-normal text-cyan-700">Inputs</p>
-        <h2 className="mt-2 text-xl font-semibold text-slate-950">Melbourne household settings</h2>
+        <p className="text-xs font-medium text-[#86868b]">Inputs</p>
+        <h2 className="mt-2 text-xl font-semibold tracking-normal text-[#f5f5f7]">Household Settings</h2>
       </div>
 
       <div className="mt-5 grid gap-4">
@@ -59,11 +59,11 @@ export function InputPanel({
 
           return (
             <label key={input.key} className="grid gap-1.5">
-              <span className="text-sm font-medium text-slate-700">{input.label}</span>
-              <span className="flex min-h-11 items-center rounded-md border border-slate-300 bg-slate-50 px-3 focus-within:border-cyan-600 focus-within:bg-white focus-within:ring-2 focus-within:ring-cyan-100">
-                {input.prefix ? <span className="mr-1 text-sm text-slate-500">{input.prefix}</span> : null}
+              <span className="text-sm font-medium text-[#a1a1a6]">{input.label}</span>
+              <span className="flex min-h-11 items-center rounded-md border border-white/10 bg-[#1d1d1f] px-3 transition focus-within:border-[#2997ff] focus-within:bg-[#222225] focus-within:ring-2 focus-within:ring-[#2997ff]/20">
+                {input.prefix ? <span className="mr-1 text-sm text-[#86868b]">{input.prefix}</span> : null}
                 <input
-                  className="min-w-0 flex-1 bg-transparent text-base font-medium text-slate-950 outline-none"
+                  className="min-w-0 flex-1 bg-transparent text-base font-medium text-[#f5f5f7] outline-none"
                   type="number"
                   min={input.min}
                   max={input.max}
@@ -74,7 +74,7 @@ export function InputPanel({
                     onChange(input.key, isPercent ? nextValue / 100 : nextValue);
                   }}
                 />
-                {input.suffix ? <span className="ml-2 whitespace-nowrap text-sm text-slate-500">{input.suffix}</span> : null}
+                {input.suffix ? <span className="ml-2 whitespace-nowrap text-sm text-[#86868b]">{input.suffix}</span> : null}
               </span>
             </label>
           );
